@@ -54,7 +54,7 @@ Services:
 
 - UI: http://localhost:5173
 - API: http://localhost:3001
-- PostgreSQL: localhost:5432
+- PostgreSQL: internal Docker network service named `db`
 
 The database is initialized automatically from `apps/forecast-api/schema.sql`.
 
@@ -77,7 +77,8 @@ DATABASE_HOST=localhost
 DATABASE_PORT=5432
 DATABASE_NAME=kfc_forecast
 DATABASE_USER=postgres
-DATABASE_PASSWORD=postgres
+# Optional if your local Postgres requires password authentication.
+DATABASE_PASSWORD=
 FORECAST_CONFIG_PATH=./config/forecast.config.json
 ```
 
@@ -122,4 +123,3 @@ Forecast behavior is managed by `apps/forecast-api/config/forecast.config.json`:
 cd apps/forecast-api && npm run build
 cd apps/forecast-web && npm run build
 ```
-

@@ -23,6 +23,11 @@ function getNumberEnv(name: string): number {
   return parsed;
 }
 
+function getOptionalEnv(name: string): string | undefined {
+  const value = process.env[name]?.trim();
+  return value || undefined;
+}
+
 export const env = {
   nodeEnv: process.env.NODE_ENV || "development",
   port: getNumberEnv("PORT"),
@@ -33,7 +38,6 @@ export const env = {
     port: getNumberEnv("DATABASE_PORT"),
     name: getEnv("DATABASE_NAME"),
     user: getEnv("DATABASE_USER"),
-    password: getEnv("DATABASE_PASSWORD"),
+    password: getOptionalEnv("DATABASE_PASSWORD"),
   },
 } as const;
-

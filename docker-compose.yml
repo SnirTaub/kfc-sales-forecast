@@ -4,9 +4,7 @@ services:
     environment:
       POSTGRES_DB: kfc_forecast
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
-    ports:
-      - "5432:5432"
+      POSTGRES_HOST_AUTH_METHOD: trust
     volumes:
       - kfc_forecast_data:/var/lib/postgresql/data
       - ./apps/forecast-api/schema.sql:/docker-entrypoint-initdb.d/001-schema.sql:ro
@@ -26,7 +24,6 @@ services:
       DATABASE_PORT: 5432
       DATABASE_NAME: kfc_forecast
       DATABASE_USER: postgres
-      DATABASE_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
       FORECAST_CONFIG_PATH: ./config/forecast.config.json
     ports:
       - "3001:3001"
