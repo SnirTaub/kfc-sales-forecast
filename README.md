@@ -58,6 +58,13 @@ Services:
 
 The database is initialized automatically from `apps/forecast-api/schema.sql`.
 
+If you previously ran an older version of this project, reset the Docker volume once so Postgres re-initializes with the current Docker settings:
+
+```bash
+docker compose down -v
+docker compose up --build
+```
+
 ## Run Locally
 
 ### API
