@@ -1,0 +1,7 @@
+{
+  "generationIntervalHours": 24,
+  "generationHourLocal": 2,
+  "lookbackDays": 14,
+  "minimumAverageQuantity": 0
+}
+
